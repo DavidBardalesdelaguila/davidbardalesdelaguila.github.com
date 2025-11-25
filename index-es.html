@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<title>Ayuda a David contra el Parkinson – Versión en Español</title>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<style>
+    :root {
+      --bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --soft-bg: #f8fafc;
+      --primary: #0369a1;
+      --primary-dark: #075985;
+      --primary-soft: #e0f2fe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      border-bottom: 1px solid var(--border);
+      background: #ffffff;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 32px 0 40px;
+    }
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+    .hero-main {
+      flex: 1;
+    }
+    .hero-tag-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .lang-switch a {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      color: var(--text);
+      text-decoration: none;
+      background: #ffffff;
+    }
+    .lang-switch a:hover {
+      background: var(--soft-bg);
+    }
+    h1 {
+      margin: 12px 0 8px;
+      font-size: 28px;
+      line-height: 1.15;
+    }
+    @media (min-width: 768px) {
+      h1 { font-size: 34px; }
+    }
+    h1 span {
+      display: block;
+      color: var(--primary-dark);
+    }
+    .hero-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 600px;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+      text-decoration: none;
+    }
+    .btn-ghost {
+      background: #ffffff;
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .btn-ghost:hover {
+      background: var(--soft-bg);
+      text-decoration: none;
+    }
+    .quick-links {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .quick-links span {
+      font-weight: 600;
+    }
+    .quick-links a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .hero-side {
+      width: 100%;
+      max-width: 290px;
+    }
+    .card {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      padding: 16px 18px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+    }
+    .card-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .goal-amount {
+      font-size: 30px;
+      font-weight: 700;
+    }
+    .goal-sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .goal-note {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    main {
+      padding: 32px 0 40px;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      font-size: 20px;
+      margin: 0 0 8px;
+    }
+    h3 {
+      font-size: 15px;
+      margin: 12px 0 4px;
+    }
+    .section-hint {
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 768px) {
+      .two-cols {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .text-sm {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .muted {
+      color: var(--muted);
+    }
+    dl { margin: 0; }
+    dt { font-size: 13px; color: var(--muted); }
+    dd { font-size: 14px; margin: 0; }
+    .dl-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 6px;
+    }
+    .pill-box {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--soft-bg);
+      padding: 10px 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .pill-box p {
+      margin: 0 0 4px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .pill-box ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .pill-box li {
+      margin-bottom: 3px;
+    }
+    .card-full {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      padding: 18px 18px 20px;
+    }
+    .card-full ul {
+      padding-left: 18px;
+      margin-top: 4px;
+    }
+    .card-full li {
+      margin-bottom: 4px;
+    }
+    .short-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    @media (min-width: 768px) {
+      .short-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .short-card {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      padding: 16px 18px;
+      font-size: 14px;
+    }
+    .short-card small {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .short-link {
+      font-size: 11px;
+      color: var(--primary-dark);
+      word-break: break-all;
+    }
+    .short-link a { text-decoration: underline; }
+
+    .timeline {
+      position: relative;
+      border-left: 1px solid var(--border);
+      margin-left: 20px;
+      padding-left: 28px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -14px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+    .timeline-year {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    .timeline-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 768px) {
+      .cta-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .cta-card {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      padding: 14px 16px;
+      font-size: 14px;
+    }
+    .cta-card small {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 768px) {
+      .photo-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .photo-card, .doc-card {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      padding: 14px 14px 16px;
+      font-size: 14px;
+    }
+    .placeholder {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 12px;
+      border: 1px dashed var(--border);
+      background: var(--soft-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      padding: 4px;
+    }
+
+    .image-thumb {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #000;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .image-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin: 6px 0 2px;
+    }
+    .photo-desc {
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .docs-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 768px) {
+      .docs-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .lightbox.open {
+      display: flex;
+    }
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      position: relative;
+    }
+    .lightbox-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: #ffffff;
+      color: #0f172a;
+      font-size: 18px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.3);
+    }
+    @media (max-width: 480px) {
+      .lightbox-content {
+        max-width: 95vw;
+        max-height: 80vh;
+      }
+    }
+  
+    .lang-switch a.active-lang {
+      background: var(--soft-bg);
+      border-color: var(--primary);
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+    </style>
+</head>
+<body>
+<header>
+<div class="container hero">
+<div class="hero-main">
+<div class="hero-tag-row">
+<p class="hero-tag">Medical fundraiser · Advanced Parkinson’s</p>
+<div class="lang-switch">
+<span class="lang-label">Language / Idioma</span>
+<a class="" href="index-en.html">EN</a>
+<a aria-current="page" class="active-lang" href="index-es.html">ES</a>
+</div>
+</div>
+<h1>
+          Help David Fight Parkinson’s:
+          <span>Surgery &amp; Recovery Fund</span>
+</h1>
+<p class="hero-text">David Del Águila Bardales (56) es padre de familia de Villa El Salvador, Lima (Perú), y vive con Enfermedad de Parkinson avanzada. En noviembre de 2025 su condición se descompensó gravemente y ahora necesita con urgencia una cirugía de Estimulación Cerebral Profunda (DBS) para recuperar autonomía y dignidad.</p>
+<div class="hero-buttons">
+<a class="btn btn-primary" href="https://gofund.me/3510f9eab" rel="noopener noreferrer" target="_blank">
+            ❤️ Donate now / Donar ahora
+          </a>
+<a class="btn btn-ghost" href="#spanish">
+            Read full story
+          </a>
+</div>
+<div class="quick-links">
+<span>Quick links / Enlaces rápidos:</span>
+<a href="#photos">Photos of David / Fotos</a>
+<span>•</span>
+<a href="#prescriptions">Medical prescriptions / Recetas médicas</a>
+</div>
+</div>
+<div class="hero-side">
+<div class="card">
+<div class="card-title">Campaign goal / Meta</div>
+<div class="goal-amount">$25,000</div>
+<div class="goal-sub">
+            USD needed for surgery, device, hospital stay and rehabilitation.
+          </div>
+<div class="goal-note">
+            This page is a static overview. The real-time amount raised appears directly on the GoFundMe page.
+          </div>
+</div>
+</div>
+</div>
+</header>
+<main class="container">
+<section id="profile">
+<h2>1. Perfil del beneficiario</h2>
+<p class="section-hint">Información clave sobre David y la meta de recaudación (español).</p>
+<div class="two-cols">
+
+<div class="text-sm">
+<h3>Resumen en español</h3>
+<p class="muted">
+            David es padre de familia y vecino de Villa El Salvador (Lima, Perú). Desde hace años lucha contra
+            la Enfermedad de Parkinson. A pesar del diagnóstico, trabajó todo lo posible para sostener su hogar
+            hasta que la enfermedad avanzó a una fase severa con rigidez, discinesias y crisis recientes que
+            han puesto en riesgo su vida.
+          </p>
+<p class="muted">
+            Hoy su familia no puede afrontar sola los costos de la cirugía de Estimulación Cerebral Profunda
+            (DBS) recomendada por los especialistas.
+          </p>
+</div>
+</div>
+</section>
+
+<section id="spanish">
+<h2>2. Historia completa (Español)</h2>
+<div class="card-full text-sm">
+<p><strong>Ayúdanos a que David recupere su vida.</strong></p>
+<p>
+          David Del Águila Bardales (56) es padre de familia y vecino de Villa El Salvador (Lima, Perú). Desde hace
+          años vive con la Enfermedad de Parkinson. A pesar de los síntomas, siempre buscó mantenerse activo para
+          sostener su hogar.
+        </p>
+<p><strong>Por qué pedimos ayuda ahora</strong></p>
+<p>
+          El año 2025 ha sido especialmente duro. Su enfermedad se descompensó de forma grave, con convulsiones,
+          infección urinaria severa, fiebre y cuadros de distonía (rigidez muscular dolorosa). Esto motivó una
+          hospitalización de emergencia en el Hospital de Emergencias Villa El Salvador (HEVES) del 4 al 12 de
+          noviembre de 2025.
+        </p>
+<p>
+          Aunque hoy se encuentra en casa, su calidad de vida está muy limitada. La rigidez y los movimientos
+          involuntarios le impiden realizar actividades básicas como caminar con seguridad o comer sin ayuda.
+          La medicación por sóla ya no es suficiente.
+        </p>
+<p><strong>La esperanza: Estimulación Cerebral Profunda (DBS)</strong></p>
+<p>
+          Los equipos de Neurología y Neurocirugía Funcional han planteado una cirugía de
+          <strong> Estimulación Cerebral Profunda (Deep Brain Stimulation, DBS)</strong> como la mejor
+          opción disponible. No cura el Parkinson, pero puede reducir de forma importante los temblores, la
+          rigidez y las discinesias cuando las pastillas ya no controlan bien los síntomas.
+        </p>
+<p>
+          El objetivo es que David recupere parte de su autonomía: poder caminar con menos dolor, comer sin
+          depender completamente de terceros y vivir con mayor dignidad.
+        </p>
+<p><strong>Meta de la campaña: 25 000 USD</strong></p>
+<p>Lo recaudado se destinará a:</p>
+<ul>
+<li>Evaluaciones neurológicas y funcionales previas a la cirugía.</li>
+<li>Costos de la cirugía DBS (u opción funcional equivalente) y hospitalización.</li>
+<li>Dispositivo de estimulación (marcapasos cerebral), si no estuviera cubierto al 100%.</li>
+<li>Calibraciones posteriores del dispositivo y controles médicos.</li>
+<li>Medicación y rehabilitación física después de la cirugía.</li>
+</ul>
+<p>
+          Cada aporte nos acerca un paso más a que David pueda volver a levantarse, caminar y abrazar a su familia
+          con menos dolor. Gracias por leer, compartir y apoyar.
+        </p>
+<div style="margin-top:14px;">
+<a class="btn btn-primary" href="https://gofund.me/3510f9eab" rel="noopener noreferrer" target="_blank">
+            Ir a la página de donaciones
+          </a>
+</div>
+</div>
+</section>
+<section id="shorttexts">
+<h2>4. Mensajes cortos para compartir</h2>
+<div class="short-grid">
+
+<div class="short-card">
+<small>Español</small>
+<p>🤟 <strong>Ayuda urgente para David</strong></p>
+<p class="muted">
+            Mi papá/tío/amigo <strong>David Del Águila</strong> (56) está luchando contra un Parkinson
+            agresivo en Villa El Salvador. Tras su última hospitalización, los médicos indican que necesita una
+            cirugía (DBS) para recuperar calidad de vida. Las medicinas ya no son suficientes.
+          </p>
+<p class="muted">
+            🙏 Por favor, ayúdanos con una donación o compartiendo este mensaje:
+          </p>
+<p class="short-link">
+<a href="https://gofund.me/3510f9eab" rel="noopener noreferrer" target="_blank">
+              https://gofund.me/3510f9eab
+            </a>
+</p>
+</div>
+</div>
+</section>
+<section id="evidence">
+<h2>5. Evidencia médica</h2>
+<div class="two-cols text-sm">
+<div>
+<p class="muted">
+            To build trust with donors, we recommend uploading clear photos (with sensitive data partially
+            hidden) of the following documents:
+          </p>
+<ul>
+<li>Hospital discharge summary from Hospital de Emergencias Villa El Salvador (November 2025).</li>
+<li>Current prescriptions (Levodopa/Carbidopa, Pramipexole, Clonazepam, antibiotics, etc.).</li>
+<li>Physical therapy and neurorehabilitation appointment card.</li>
+<li>Previous evaluations from Instituto Peruano de Neurociencias (IPN, 2021).</li>
+</ul>
+</div>
+<div class="pill-box">
+<p>Privacy suggestions / Sugerencias de privacidad</p>
+<ul>
+<li>Hide some digits of the ID number (e.g., 0666 *** 713).</li>
+<li>Blur exact home addresses and personal phone numbers.</li>
+<li>Share only what is necessary to demonstrate the medical situation.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="timeline">
+<h2>6. Línea de tiempo médica (resumen)</h2>
+<p class="text-sm muted" style="max-width:640px;">
+        Below is a brief chronological overview based on hospital reports, prescriptions and appointment
+        tickets. You can keep this level of detail on the website or shorten it for some platforms.
+      </p>
+<div class="timeline text-sm">
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-year">2006</div>
+<div class="timeline-title">Brain MRI</div>
+<p class="muted">
+            A brain MRI rules out tumors and major lesions. Only a small benign 3 mm lesion in the left frontal
+            lobe and sinus findings are described.
+          </p>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-year">2020</div>
+<div class="timeline-title">Start of treatment at HEVES</div>
+<p class="muted">
+            The Emergency Hospital of Villa El Salvador (HEVES) registers parkinsonism treated with
+            Levodopa/Carbidopa and Clonazepam; later Pramipexole is added. Chronic treatment to control
+            tremors and rigidity begins.
+          </p>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-year">2021</div>
+<div class="timeline-title">Parkinson’s confirmed at IPN</div>
+<p class="muted">
+            The Instituto Peruano de Neurociencias (Dr. Nilton Custodio) confirms the diagnosis of
+            Parkinson’s Disease (G20) with dyskinesias. Doses of Levodopa/Carbidopa, Pramipexole and
+            Clonazepam are adjusted. A functional neurosurgeon also evaluates other options.
+          </p>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-year">June–August 2025</div>
+<div class="timeline-title">Motor worsening and referral to rehabilitation</div>
+<p class="muted">
+            Neurology at HEVES records advanced Parkinson’s with severe constipation and gastritis, and
+            refers David to Physical Medicine and Rehabilitation. In August, a neuro-physical therapy program
+            is opened and sessions are scheduled.
+          </p>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-year">31 October 2025</div>
+<div class="timeline-title">Medication adjustment and therapies scheduled</div>
+<p class="muted">
+            The dopaminergic scheme is reinforced (multiple daily doses of Levodopa/Carbidopa and
+            Pramipexole 1 mg), and 8 neurorehabilitation sessions are scheduled for November.
+          </p>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-year">4–12 November 2025</div>
+<div class="timeline-title">Hospitalization for seizures, UTI and stroke</div>
+<p class="muted">
+            David is admitted urgently to HEVES with seizures, fever, a severe urinary tract infection,
+            cellulitis and an unspecified cerebral infarction. He remains hospitalized from November 4th to 12th.
+            The discharge report documents advanced Parkinson’s and dystonia with a guarded prognosis.
+          </p>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-year">Nov–Dec 2025</div>
+<div class="timeline-title">Treatment readjustment and follow-up</div>
+<p class="muted">
+            After discharge, a complex scheme of antibiotics, intestinal regulation and antiparkinsonian
+            drugs is maintained. Follow-up visits with Internal Medicine and Neurology are scheduled, along
+            with neurorehabilitation. In this context, DBS surgery is strongly considered as the next step.
+          </p>
+</div>
+</div>
+</section>
+<section id="cta-final">
+<h2>7. How You Can Help Today / Cómo puedes ayudar hoy</h2>
+<p class="text-sm muted" style="max-width:640px;">
+        Your support can make the difference between living tied to pain and the fear of a new crisis, or
+        regaining the ability to walk, eat and hug family with greater peace of mind.
+      </p>
+<div class="cta-grid">
+<div class="cta-card">
+<small>1. Donate / Dona</small>
+<p class="muted">
+            Any amount helps. Many small contributions can make this surgery possible.
+          </p>
+</div>
+<div class="cta-card">
+<small>2. Share / Comparte</small>
+<p class="muted">
+            Share this story on WhatsApp, social media or email so it can reach more people.
+          </p>
+</div>
+<div class="cta-card">
+<small>3. Support / Acompaña</small>
+<p class="muted">
+            Messages of encouragement and emotional support also help David and his family through this
+            difficult process.
+          </p>
+</div>
+</div>
+<div style="margin-top:16px;">
+<a class="btn btn-primary" href="https://gofund.me/3510f9eab" rel="noopener noreferrer" target="_blank">
+          ❤️ Donate now / Donar ahora
+        </a>
+</div>
+</section>
+<section id="photos">
+<h2>8. Photo Gallery / Galería de fotos</h2>
+<p class="text-sm muted" style="max-width:640px;">
+        Here you can show recent photos of David (with his consent) so that donors can put a face to his
+        story. On your final website, replace the placeholders below with real images.
+      </p>
+<p class="text-sm muted" style="max-width:640px;">
+        Aquí puedes mostrar fotos recientes de David (con su consentimiento) para que las personas que donan
+        puedan conectar mejor con su historia. En tu página final, reemplaza los cuadros de ejemplo por fotos
+        reales.
+      </p>
+<div class="photo-grid">
+<div class="photo-card">
+<div class="image-thumb" data-full="prueba.jpg">
+<img alt="Portrait of David Del Águila" loading="lazy" src="prueba.jpg"/>
+</div>
+<div class="photo-title">Portrait / Retrato</div>
+<div class="photo-desc">
+            A respectful, well-lit photo of David to humanize the campaign.
+          </div>
+</div>
+<div class="photo-card">
+<div class="placeholder">
+            Replace with David and family / Reemplazar con David y su familia
+          </div>
+<div class="photo-title">Family / Familia</div>
+<div class="photo-desc">
+            A family photo that shows who is by his side and why this support matters.
+          </div>
+</div>
+<div class="photo-card">
+<div class="placeholder">
+            Replace with hospital / therapy photo (optional)<br/>
+            Reemplazar con foto de hospital / terapia (opcional)
+          </div>
+<div class="photo-title">Hospital / Rehabilitación</div>
+<div class="photo-desc">
+            If you wish, you can add a discreet photo from therapy or the hospital to illustrate his treatment
+            process.
+          </div>
+</div>
+</div>
+</section>
+<section id="prescriptions">
+<h2>9. Prescriptions &amp; Medical Documents / Recetas médicas y documentos</h2>
+<p class="text-sm muted" style="max-width:640px;">
+        Use this section to display clear pictures of David's key medical documents: prescriptions,
+        discharge summaries and rehabilitation tickets. This helps donors verify the medical situation.
+      </p>
+<p class="text-sm muted" style="max-width:640px;">
+        Usa esta sección para mostrar fotos claras de los documentos médicos más importantes de David: recetas,
+        informes de alta y boletas de rehabilitación. Esto ayuda a que las personas que donan vean que el caso
+        es real y está documentado.
+      </p>
+<div class="docs-grid">
+<div class="doc-card">
+<div class="placeholder">
+            Replace with HEVES discharge summary / Reemplazar con informe de alta HEVES
+          </div>
+<div class="photo-title">Discharge summary / Informe de alta</div>
+<div class="photo-desc">
+            Hospital de Emergencias Villa El Salvador (Nov 2025) with diagnoses and treatment at discharge.
+          </div>
+</div>
+<div class="doc-card">
+<div class="placeholder">
+            Replace with prescriptions photo / Reemplazar con foto de recetas
+          </div>
+<div class="photo-title">Prescriptions / Recetas</div>
+<div class="photo-desc">
+            Current prescriptions for Levodopa/Carbidopa, Pramipexole, Clonazepam and antibiotics after
+            hospitalization.
+          </div>
+</div>
+<div class="doc-card">
+<div class="placeholder">
+            Replace with rehab tickets / Reemplazar con tickets de rehabilitación
+          </div>
+<div class="photo-title">Rehabilitation / Rehabilitación</div>
+<div class="photo-desc">
+            Tickets or cards for neurorehabilitation and physical therapy sessions scheduled in 2025.
+          </div>
+</div>
+<div class="doc-card">
+<div class="placeholder">
+            Replace with IPN reports / Reemplazar con informes del IPN
+          </div>
+<div class="photo-title">IPN reports / Informes IPN</div>
+<div class="photo-desc">
+            Key pages from the Instituto Peruano de Neurociencias (2021) confirming Parkinson's diagnosis
+            and long-term treatment.
+          </div>
+</div>
+</div>
+<div style="margin-top:16px;">
+<a class="btn btn-primary" href="https://gofund.me/3510f9eab" rel="noopener noreferrer" target="_blank">
+          ❤️ Donate now / Donar ahora
+        </a>
+</div>
+</section>
+</main>
+<div class="lightbox" id="lightbox">
+<div class="lightbox-content">
+<button aria-label="Cerrar imagen" class="lightbox-close" type="button">×</button>
+<img alt="Expanded image" id="lightbox-img" src=""/>
+</div>
+</div>
+<script>
+    (function () {
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightbox-img');
+      var closeBtn = lightbox.querySelector('.lightbox-close');
+
+      function openLightbox(src, alt) {
+        if (!src) return;
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || '';
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        lightboxImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      var thumbs = document.querySelectorAll('.image-thumb');
+      for (var i = 0; i < thumbs.length; i++) {
+        thumbs[i].addEventListener('click', function () {
+          var img = this.querySelector('img');
+          var full = this.getAttribute('data-full') || (img && img.getAttribute('src'));
+          var alt = img ? img.alt : '';
+          openLightbox(full, alt);
+        });
+      }
+
+      closeBtn.addEventListener('click', closeLightbox);
+
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
